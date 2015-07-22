@@ -7,10 +7,8 @@ version := "0.0.1"
 scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
-    "uk.co.bigbeeconsultants" %% "bee-client" % "0.28.0",
-    "org.slf4j" % "slf4j-api" % "1.7.12",
-    "ch.qos.logback" % "logback-core"    % "1.1.3",
-    "ch.qos.logback" % "logback-classic" % "1.1.3"
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.3",
+  "org.apache.httpcomponents" % "httpclient" % "4.5",
+  "org.jsoup" % "jsoup" % "1.8.2",
+  "org.scalatest" %% "scalatest" % "2.2.5" % "test"
 )
-
-resolvers += "Big Bee Consultants" at "http://repo.bigbeeconsultants.co.uk/repo"
