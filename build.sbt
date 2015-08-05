@@ -1,6 +1,6 @@
-name := "Leander-App"
+name := "FBApp"
 
-organization := "org"
+organization := "org.leander"
 
 version := "0.0.1"
 
@@ -12,3 +12,5 @@ libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % "1.8.2",
   "org.scalatest" %% "scalatest" % "2.2.5" % "test"
 )
+
+minSdkVersion in Android := "android-21"
