@@ -3,8 +3,6 @@ import org.scalatest._
 import scala.concurrent.Await
 import scala.concurrent.duration._
 
-case class Distance(start: String, end: String, distance: Int)
-
 class WebflyerTest extends FunSpec with Matchers {
   describe("distance calculations") {
     List(Distance("ZRH", "SIN", 6400)).foreach({ dist =>

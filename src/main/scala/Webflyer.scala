@@ -1,7 +1,13 @@
+package org.leander
+
 import dispatch._, Defaults._
 import org.jsoup.Jsoup
 
 import scala.concurrent.Future
+import slick.jdbc.JdbcBackend.Database
+import slick.lifted.TableQuery
+import scala.slick.driver.SQLiteDriver.api._
+
 
 object Webflyer {
   def distance(start: String, end: String): Future[Int] = {
@@ -14,5 +20,15 @@ object Webflyer {
         .text()
       text.split(" ")(0).toInt
     })
+  }
+}
+
+class CachingWebflyer(db: Database) {
+  def distance(start: String, end: String): Future[Int] = {
+    val distances = TableQuery[Distances]
+    db.run(distances.filter(_.departure === start).filter(_.arrival === end).map(_.miles).result.headOption).map(result =>
+      val otherwise = Webflyer.distance(start, end)
+      // Int here
+    )
   }
 }
